@@ -49,10 +49,13 @@ export class LinkedList<T> {
     removeDuplicate(): void {
         let inSet: Set<T> = new Set();
         let current: Node<T> = this.head;
+        let prev: Node<T> = null;
         while (current !== null) {
-            inSet.add(current.value);
-            if (current.next !== null && inSet.has(current.next.value)) {
-                current.next = current.next.next;
+            if (inSet.has(current.value)) {
+                prev.next = current.next;
+            }else{
+                inSet.add(current.value);
+                prev = current;
             }
             current = current.next;
         }
