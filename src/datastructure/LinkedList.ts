@@ -46,6 +46,28 @@ export class LinkedList<T> {
         }
     }
 
+    /**
+     * Sort the element of this linked list in place.
+     * Tips: Make use of Bubble Sort or Merge Sort.
+     * Tips 2: Don't forget about the method compareTo of the class Node<T>
+     * Bonus: Why usage of Bubble Sort instead of Quick Sort
+     * input: [1, 5, 3, 7, 4]
+     * output: [1, 3, 4, 5, 7]
+     */
+    sort(): void {
+
+    }
+
+    /**
+     * Merge the content of this linked list with another linked list into a single linked list and return the result back
+     * Tips: In doubt, sort two lists.
+     * input: [1, 3, 5, 7], [2, 4, 6, 8]
+     * output: [1, 2, 3, 4, 5, 6, 7, 8]
+     */
+    merge(otherList: LinkedList<T>): LinkedList<T> {
+        return new LinkedList<T>();
+    }
+
     removeDuplicate(): void {
         let inSet: Set<T> = new Set();
         let current: Node<T> = this.head;
@@ -53,7 +75,7 @@ export class LinkedList<T> {
         while (current !== null) {
             if (inSet.has(current.value)) {
                 prev.next = current.next;
-            }else{
+            } else {
                 inSet.add(current.value);
                 prev = current;
             }
