@@ -8,17 +8,9 @@ export class Node<T> {
         this.next = next;
         this.previous = previous;
     }
-
-    compareTo(otherNode: Node<T>): number {
-        if (this.value === otherNode.value) {
-            return 0
-        } else {
-            return 1;
-        }
-    }
 }
 
-export class Queue<T>{
+export class Queue<T> {
     public head: Node<T> = null;
     public tail: Node<T> = null;
 
@@ -33,7 +25,14 @@ export class Queue<T>{
     /**
      * Remove and return the next element of the queue
      */
-    dequeue(): T{
+    dequeue(): T {
         return null;
+    }
+
+    /**
+     * Iterate the Stack and return the whole content in LIFO manner
+     */
+    iterate(): Array<T> {
+        return new Array<T>();
     }
 }
