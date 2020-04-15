@@ -8,14 +8,6 @@ export class Node<T> {
         this.next = next;
         this.previous = previous;
     }
-
-    compareTo(otherNode: Node<T>): number {
-        if (this.value === otherNode.value) {
-            return 0
-        } else {
-            return 1;
-        }
-    }
 }
 
 export class Stack<T>{
@@ -35,5 +27,12 @@ export class Stack<T>{
      */
     pop(): T{
         return null;
+    }
+
+    /**
+     * Iterate the Stack and return the whole content in FIFO manner
+     */
+    iterate(): Array<T>{
+        return new Array<T>();
     }
 }
