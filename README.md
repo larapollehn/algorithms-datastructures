@@ -20,6 +20,12 @@ Teach about recursive sorting
 
 Teach about basic computer science's datas tructures which are usually used.
 
+#### Ring Buffer
+
+Data structure with constraint
+
+#### Binary Search Tree
+
 #### Object Hashing, String hashing
 
 First prerequisite for hash map
@@ -55,3 +61,7 @@ Basic algorithm with number
 #### String permutation, Trigonometry Approximation, Two line intersections
 
 etc.
+
+#### Fibonacci, Factorial
+
+Some basic recursive algorithms.
