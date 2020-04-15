@@ -55,7 +55,31 @@ export class LinkedList<T> {
      * output: [1, 3, 4, 5, 7]
      */
     sort(): void {
-
+        let swapped: boolean = true;
+        while (swapped) {
+            swapped = false;
+            let current: Node<T> = this.head;
+            let prev = null;
+            let next = null;
+            while (current !== null) {
+                next = current.next;
+                if (next !== null && next.value < current.value) {
+                    if (prev === null) {
+                        this.head = next;
+                        this.head.next = current;
+                        swapped = true;
+                    } else {
+                        prev.next = next;
+                        current.next = next.next;
+                        next.next = current;
+                        swapped = true;
+                    }
+                }else{
+                    prev = current;
+                    current = current.next;
+                }
+            }
+        }
     }
 
     /**
