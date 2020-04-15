@@ -1,12 +1,5 @@
 import {Stack, Node} from "../../src/datastructure/Stack";
 
-test('ading node works', () =>{
-   let node: Node<string> = new Node("Henlo", null, null);
-   expect(node.value).toBe("Henlo");
-   expect(node.next).toBe(null);
-   expect(node.previous).toBe(null);
-});
-
 test('pushing new node onto stack works', () =>{
    const stack: Stack<string> = new Stack();
 

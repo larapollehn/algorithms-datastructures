@@ -1,3 +1,5 @@
+import {createSecureContext} from "tls";
+
 export class Node<T> {
     public readonly value: T;
     public next: Node<T>;
@@ -16,23 +18,48 @@ export class Queue<T> {
 
     /**
      * Add a new element to the queue
-     * @param t new value
+     * @param value new value
      */
-    queue(t: T): void {
-
+    queue(value: T): void {
+        let incoming = new Node(value, null, null);
+        if(this.head === null && this.tail === null){
+            this.head = incoming;
+            this.tail = incoming;
+        }else{
+            let currentTail = this.tail;
+            currentTail.next = incoming;
+            this.tail = incoming;
+            this.tail.previous = currentTail;
+        }
     }
 
     /**
      * Remove and return the next element of the queue
      */
-    dequeue(): T {
-        return null;
+    dequeue(): Node<T> {
+        if(this.head === null && this.tail === null){
+            return null;
+        }else{
+            let currentHead = this.head;
+            this.head = currentHead.next;
+            this.head.previous = null;
+            currentHead.next = null;
+            return currentHead;
+        }
+
+
     }
 
     /**
      * Iterate the Stack and return the whole content in LIFO manner
      */
     iterate(): Array<T> {
-        return new Array<T>();
+        let iteratedQueue = new Array<T>();
+        let current = this.tail;
+        while(current !== null){
+            iteratedQueue.push(current.value);
+            current = current.previous;
+        }
+        return iteratedQueue;
     }
 }
