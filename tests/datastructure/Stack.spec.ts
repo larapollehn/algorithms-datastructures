@@ -7,13 +7,6 @@ test('ading node works', () =>{
    expect(node.previous).toBe(null);
 });
 
-test('comparing two Nodes works', () => {
-    const node1 = new Node("Henlo", null, null);
-    const node2 = new Node("Hallo", null, null);
-    expect(node1.compareTo(node1)).toEqual(0);
-    expect(node1.compareTo(node2)).toEqual(1);
-});
-
 test('pushing new node onto stack works', () =>{
    const stack: Stack<string> = new Stack();
 
@@ -45,4 +38,19 @@ test('popping node from stack works', () =>{
     expect(stack.tail.next).toBe(null);
     expect(stack.tail.previous.value).toBe("Eins");
     expect(stack.head.value).toBe("Eins");
+});
+
+test('iterating the stack works', () => {
+    const stack: Stack<number> = new Stack();
+    stack.push(1);
+    stack.push(7);
+    stack.push(23);
+    stack.push(4);
+    stack.push(12);
+    let iteratedStack = stack.iterate();
+    const expected = [1, 7, 23, 4, 12];
+    for (let i = 0; i < iteratedStack.length; i++) {
+        expect(iteratedStack[i]).toEqual(expected[i]);
+    }
+    expect(iteratedStack.length).toEqual(expected.length);
 });

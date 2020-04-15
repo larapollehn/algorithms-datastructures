@@ -48,7 +48,13 @@ export class Stack<T>{
     /**
      * Iterate the Stack and return the whole content in FIFO manner
      */
-    iterate(): Array<T>{
-        return new Array<T>();
+    iterate(): Array<T> {
+        let iteratedStack: Array<T> = new Array<T>();
+        let current = this.head;
+        while (current !== null) {
+            iteratedStack.push(current.value);
+            current = current.next;
+        }
+        return iteratedStack;
     }
 }
