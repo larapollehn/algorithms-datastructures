@@ -11,7 +11,7 @@ test('multiplying two matrix works - testcase 1', () =>{
 
     const expectedMC1: Array<Array<number>> = [[58, 64], [139, 154]];
     const MC1: Array<Array<number>> = multiply(MA1, MB1);
-    //expect(MC1[0].length).toBe(MB1[0].length);
+    expect(MC1[0].length).toBe(MB1[0].length);
     expect(MC1.length).toBe(MA1.length);
     expect(MC1[0][0]).toBe(expectedMC1[0][0]);
     expect(MC1[0][1]).toBe(expectedMC1[0][1]);
