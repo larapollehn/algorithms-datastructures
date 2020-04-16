@@ -53,7 +53,6 @@ export class LinkedList<T> {
      * Bonus: Why usage of Bubble Sort instead of Quick Sort
      * input: [1, 5, 3, 7, 4]
      * output: [1, 3, 4, 5, 7]
-     */
     sort(): void {
         let swapped: boolean = true;
         while (swapped) {
@@ -81,6 +80,7 @@ export class LinkedList<T> {
             }
         }
     }
+     **/
 
     /**
      * Merge the content of this linked list with another linked list into a single linked list and return the result back

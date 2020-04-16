@@ -78,16 +78,3 @@ test('Removing Duplicate works', () =>{
     expect(nodeList.length).toEqual(expected.length);
 });
 
-test('Sorting the LinkedList works', () =>{
-    const list = new LinkedList<number>();
-    list.insert(2);
-    list.insert(5);
-    list.insert(1);
-    list.insert(3);
-    list.sort();
-    const nodeList: Array<number> = list.iterate();
-    const expected = [1, 2, 3, 5];
-    for (let i = 0; i < nodeList.length; i++) {
-        expect(nodeList[i]).toEqual(expected[i]);
-    }
-});
