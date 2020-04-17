@@ -24,45 +24,38 @@ export class KNearestNeighbors<T> {
 
     label(x: number, y: number, k: number): T {
         if (this._content.length !== 0) {
-            //create new Point that will be labeld with this method
-            let the_point = new Point2D(x, y, null);
-
             //calculate euclidean distance of the points in the neighbourhood to the point in question
             //give back nested array with distance and point
-            let evaluatedPoints: Array<[number, Point2D<T>]> = this._content.map((point: Point2D<T>) => {
-                return [Number((the_point.distance(point)).toFixed(2)), point];
+            let distanceToPoint: Array<[number, Point2D<T>]> = this._content.map((point: Point2D<T>) => {
+                return [Number((new Point2D(x, y, null).distance(point)).toFixed(2)), point];
             });
 
             //sort points in neighbourhood in ascending order
-            let sorted: Array<[number, Point2D<T>]> = evaluatedPoints.sort(function (a: [number, Point2D<T>], b: [number, Point2D<T>]) {
+            let sortedPointsAsc: Array<[number, Point2D<T>]> = distanceToPoint.sort(function (a: [number, Point2D<T>], b: [number, Point2D<T>]) {
                 return a[0] - b[0];
             });
-            console.log(sorted);
-
             //search the labels of the k-nearest points
-            let labels: Array<T> = [];
+            let labelsOfKNearest: Array<T> = [];
             for (let i = 0; i < k; i++) {
-                labels.push(sorted[i][1]['label'])
+                labelsOfKNearest.push(sortedPointsAsc[i][1]['label'])
             }
-            console.log(labels);
 
             //create set with the label-categories of the k-nearest points
-            let category: Array<T> = Array.from(new Set(labels));
-            console.log(category);
+            let possibleCategory: Array<T> = Array.from(new Set(labelsOfKNearest));
 
             //count how often each category of the k-nearest points is present
-            let amountEachCategory: Array<[number, T]> = [];
-            for (let i = 0; i < category.length; i++) {
-                amountEachCategory.push([labels.filter(label => label === category[i]).length, category[i]])
+            let amountEachCategoryOfKNearest: Array<[number, T]> = [];
+            for (let i = 0; i < possibleCategory.length; i++) {
+                amountEachCategoryOfKNearest.push([labelsOfKNearest.filter(label => label === possibleCategory[i]).length, possibleCategory[i]])
             }
-            console.log(amountEachCategory);
 
             //sort categorys ba amount and give lable of the most present
-            let resultingLable: Array<[number, T]> = amountEachCategory.sort(function (a: [number, T], b: [number, T]) {
+            let resultingLable: Array<[number, T]> = amountEachCategoryOfKNearest.sort(function (a: [number, T], b: [number, T]) {
                 return b[0] - a[0];
             });
-            console.log("result", resultingLable[0][1]);
+
             return resultingLable[0][1];
+
         }else {
             throw new Error('Content is empty - no neighbors found')
         }

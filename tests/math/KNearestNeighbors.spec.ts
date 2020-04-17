@@ -32,6 +32,18 @@ test('evaluating distance works - testcase 1', () => {
 });
 
 test('evaluating distance works - testcase 2', () => {
+    let point1 = new Point2D(1, 22, 'orange');
+    let point2 = new Point2D(-9, 12, 'blue');
+    let point3 = new Point2D(2.45, 2, 'green');
+    let point4 = new Point2D(0, 3, 'blue');
+    let point5 = new Point2D(163, 2, 'green');
+    let point6 = new Point2D(0, 1, 'orange');
+    let net = new KNearestNeighbors([point1, point2, point3, point4, point5, point6]);
+    let result = net.label(12,1,2);
+    expect(result).toBe('green');
+});
+
+test('evaluating distance works - testcase 3', () => {
     let point1 = new Point2D(12, 4, 2);
     let point2 = new Point2D(-3, 55, 1);
     let point3 = new Point2D(1, 6, 2);
