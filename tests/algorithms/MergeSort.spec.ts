@@ -1,37 +1,54 @@
-import {mergeSort, merge, divide} from "../../src/algorithms/MergeSort";
+import {mergeSort, merge, getSubArray, getMiddle} from "../../src/algorithms/MergeSort";
 import exp = require("constants");
 
-test('merge sort on array works', () =>{
-    let unsorted:Array<number> = [5, 2, 4, 7, 1, 3, 2, 6];
-    const expected_outcome = [1, 2, 2, 3, 4, 5, 6, 7];
-    let sorted = mergeSort(unsorted);
-    expect(sorted).toEqual(expected_outcome);
+test('merge sort on array works - case odd 1', () => {
+    let outcome = mergeSort([1, 3, 2, 4]);
+    expect(outcome).toEqual([1, 2, 3, 4]);
+
+    outcome = mergeSort([1, 3, 2, 4, 5]);
+    expect(outcome).toEqual([1, 2, 3, 4, 5]);
+
+    outcome = mergeSort([1, 3, 6, 2, 4, 5]);
+    expect(outcome).toEqual([1, 2, 3, 4, 5, 6]);
+});
+test('merge on an array works -even array length', () => {
+    let merged = merge([1, 2, 3], [4, 5, 6]);
+    expect(merged).toEqual([1, 2, 3, 4, 5, 6]);
+
+    merged = merge([1, 3, 5], [2, 4, 6]);
+    expect(merged).toEqual([1, 2, 3, 4, 5, 6]);
 });
 
-test('merge on an array works -even array length', () =>{
-   let unmerged = [1, 3, 5, 2, 4, 7];
-   merge(unmerged, 0, 3, 6);
-   let expected_outcome = [1, 2, 3, 4, 5, 7];
-   expect(unmerged).toEqual(expected_outcome);
+test('Get subarray', () => {
+    let arr = [1, 2, 3, 4];
+    let [left, right] = getSubArray(arr);
+    expect(left).toEqual([1, 2]);
+    expect(right).toEqual([3, 4]);
+
+    arr = [1, 2, 3, 4, 5];
+    [left, right] = getSubArray(arr);
+    expect(left).toEqual([1, 2]);
+    expect(right).toEqual([3, 4, 5])
+
+    arr = [1, 2, 3, 4, 5, 6];
+    [left, right] = getSubArray(arr);
+    expect(left).toEqual([1, 2, 3]);
+    expect(right).toEqual([4, 5, 6]);
 });
 
-test('merge on an array works -odd array length', () =>{
-    let unmerged = [2, 5, 7, 1, 4];
-    merge(unmerged, 0, 3, 5);
-    let expected_outcome = [1, 2, 4, 5, 7];
-    expect(unmerged).toEqual(expected_outcome);
-});
+test('Get middle', () => {
+    let m1 = getMiddle(0, 4);
+    expect(m1).toEqual(2);
 
-test('dividing an array in two sub arrays works - even', () =>{
-   let to_divide =  [2, 5, 7, 1, 4, 6];
-   const arrays = divide(to_divide, 0, 3, 6);
-   expect(arrays[0]).toEqual([2, 5, 7]);
-   expect(arrays[1]).toEqual([1, 4, 6]);
-});
+    m1 = getMiddle(0, 5);
+    expect(m1).toEqual(2);
 
-test('dividing an array in two sub arrays works - odd', () =>{
-    let to_divide =  [2, 5, 7, 1, 4];
-    const arrays = divide(to_divide, 0, 3, 5);
-    expect(arrays[0]).toEqual([2, 5, 7]);
-    expect(arrays[1]).toEqual([1, 4]);
+    m1 = getMiddle(0, 6);
+    expect(m1).toEqual(3);
+
+    m1 = getMiddle(0, 7);
+    expect(m1).toEqual(3);
+
+    m1 = getMiddle(0, 8);
+    expect(m1).toEqual(4);
 });
