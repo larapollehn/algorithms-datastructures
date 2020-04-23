@@ -11,6 +11,3 @@ export function factorial(num: number): number {
 export function recursive_factorial(num:number):number {
     return num === 0 || num === 1 ? 1 : num * recursive_factorial(num-1);
 }
-
-let num = recursive_factorial(6);
-console.log(num);
