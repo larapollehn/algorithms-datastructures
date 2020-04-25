@@ -135,3 +135,40 @@ test('levelOrder-Traversal works', () => {
     levelOrder = tree2.levelOrder();
     expect(levelOrder).toEqual([9, 5, 13, 7, 10]);
 });
+
+test('comparing two trees works', () => {
+    const tree1: BinarySearchTree<number> = new BinarySearchTree<number>();
+    tree1.insert(8);
+    tree1.insert(3);
+    tree1.insert(1);
+    tree1.insert(5);
+    tree1.insert(20);
+    tree1.insert(15);
+    tree1.insert(22);
+    const tree2: BinarySearchTree<number> = new BinarySearchTree<number>();
+    tree2.insert(8);
+    tree2.insert(3);
+    tree2.insert(5);
+    tree2.insert(1);
+    tree2.insert(20);
+    tree2.insert(22);
+    tree2.insert(15);
+    expect(tree1.equals(tree2)).toBe(true);
+
+    const tree3: BinarySearchTree<number> = new BinarySearchTree<number>();
+    tree3.insert(8)
+    tree3.insert(1)
+    tree3.insert(4)
+    expect(tree1.equals(tree3)).toBe(false);
+    expect(tree1.equals(tree1)).toBe(true);
+
+    const tree4: BinarySearchTree<number> = new BinarySearchTree<number>();
+    tree4.insert(8);
+    tree4.insert(5);
+    tree4.insert(3);
+    tree4.insert(1);
+    tree4.insert(22);
+    tree4.insert(20);
+    tree4.insert(15);
+    expect(tree1.equals(tree4)).toBe(false);
+});

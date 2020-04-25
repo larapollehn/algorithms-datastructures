@@ -109,11 +109,30 @@ export class BinarySearchTree<T> {
         return result;
     }
 
-    equals(otherTree
-               :
-               BinarySearchTree<T>
-    ):
-        boolean {
+    equals(otherTree: BinarySearchTree<T>): boolean {
+        let a_current: TreeNode<T> = this.root;
+        let b_current: TreeNode<T>  = otherTree.root;
+        let a_queue: Array<TreeNode<T>> = [a_current];
+        let b_queue: Array<TreeNode<T>> = [b_current];
+
+        while (a_current != undefined && b_current != undefined){
+            if (a_current.data !== b_current.data) return false;
+
+            if (a_current.left && b_current.left) {
+                a_queue.push(a_current.left);
+                b_queue.push(b_current.left);
+            }
+
+            if (a_current.right && b_current.right){
+                a_queue.push(a_current.right);
+                b_queue.push(b_current.right);
+            }
+
+            a_queue.shift();
+            b_queue.shift();
+            a_current = a_queue[0];
+            b_current = b_queue[0];
+        }
         return true;
     }
 
