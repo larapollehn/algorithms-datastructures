@@ -48,11 +48,11 @@ export class BinarySearchTree<T> {
         } else {
             let current = this.root;
             while (current !== null) {
-                if (current.data === t){
+                if (current.data === t) {
                     return true;
-                }else if (current.data > t){
+                } else if (current.data > t) {
                     current = current.left;
-                }else{
+                } else {
                     current = current.right;
                 }
             }
@@ -60,40 +60,45 @@ export class BinarySearchTree<T> {
         }
     }
 
-/*
- * Tips: Use high order function
- */
-preOder()
-:
-Array < T > {
-    return new Array<T>();
-}
+    preOder(): Array<T> {
+        function _preOrder(root: TreeNode<T>, result: Array<T>) {
+            result.push(root.data);
+            if(root.left){
+                _preOrder(root.left, result);
+            }
+            if(root.right){
+                _preOrder(root.right, result);
+            }
+        }
+        const result = new Array<T>();
+        _preOrder(this.root, result);
+        return result;
+    }
 
-/*
- * Tips: Use high order function
- */
-inOrder()
-:
-Array < T > {
-    return new Array<T>();
-}
+    /*
+     * Tips: Use high order function
+     */
+    inOrder()
+        :
+        Array<T> {
+        return new Array<T>();
+    }
 
-/*
- * Tips: Use high order function
- */
-levelOrder()
-:
-Array < T > {
-    return new Array<T>();
-}
+    /*
+     * Tips: Use high order function
+     */
+    levelOrder()
+        :
+        Array<T> {
+        return new Array<T>();
+    }
 
-equals(otherTree
-:
-BinarySearchTree<T>
-):
-boolean
-{
-    return true;
-}
+    equals(otherTree
+               :
+               BinarySearchTree<T>
+    ):
+        boolean {
+        return true;
+    }
 
 }

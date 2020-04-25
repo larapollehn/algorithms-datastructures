@@ -69,3 +69,17 @@ test('checking if tree conatins node works', () => {
     expect(tree.contains(-6)).toEqual(false);
     expect(tree.contains(27.5)).toEqual(false);
 });
+
+test('preOrder-Traversal works', () => {
+    const tree: BinarySearchTree<number> = new BinarySearchTree();
+    tree.insert(27);
+    tree.insert(14);
+    tree.insert(35);
+    tree.insert(20);
+    tree.insert(31);
+    tree.insert(42);
+    tree.insert(10);
+    const preOrder = tree.preOder();
+    expect(preOrder).toEqual([27, 14, 10, 20, 35, 31, 42]);
+
+});
