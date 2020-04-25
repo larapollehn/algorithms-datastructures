@@ -79,7 +79,37 @@ test('preOrder-Traversal works', () => {
     tree.insert(31);
     tree.insert(42);
     tree.insert(10);
+
     const preOrder = tree.preOder();
     expect(preOrder).toEqual([27, 14, 10, 20, 35, 31, 42]);
+});
 
+test('inOrder-Traversal works', () => {
+    const tree: BinarySearchTree<number> = new BinarySearchTree();
+    tree.insert(27);
+    tree.insert(14);
+    tree.insert(36);
+    tree.insert(20);
+    tree.insert(31);
+    tree.insert(42);
+    tree.insert(10);
+
+    const inOrder = tree.inOrder();
+    expect(inOrder).toEqual([10, 14, 20, 27, 31, 36, 42]);
+
+    const tree2: BinarySearchTree<number> = new BinarySearchTree();
+    tree2.insert(7);
+    tree2.insert(3);
+    tree2.insert(13);
+    const inOrder2 = tree2.inOrder();
+    expect(inOrder2).toEqual([3, 7, 13]);
+
+    const tree3: BinarySearchTree<number> = new BinarySearchTree();
+    tree3.insert(7);
+    tree3.insert(3);
+    tree3.insert(13);
+    tree3.insert(5);
+    tree3.insert(12);
+    const inOrder3 = tree3.inOrder();
+    expect(inOrder3).toEqual([3, 5, 7, 12, 13]);
 });

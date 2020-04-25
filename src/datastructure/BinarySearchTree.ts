@@ -75,13 +75,19 @@ export class BinarySearchTree<T> {
         return result;
     }
 
-    /*
-     * Tips: Use high order function
-     */
-    inOrder()
-        :
-        Array<T> {
-        return new Array<T>();
+    inOrder(): Array<T> {
+        function _inOrder(root: TreeNode<T>, result: Array<T>) {
+            if (root.left){
+                _inOrder(root.left, result);
+            }
+            result.push(root.data);
+            if (root.right){
+                _inOrder(root.right, result);
+            }
+        }
+        const result = new Array<T>();
+        _inOrder(this.root, result);
+        return result;
     }
 
     /*
