@@ -18,10 +18,6 @@ export class BinarySearchTree<T> {
 
     }
 
-    delete(t: T): void {
-
-	}
-
 	contains(t: T): boolean {
     	return false;
 	}
