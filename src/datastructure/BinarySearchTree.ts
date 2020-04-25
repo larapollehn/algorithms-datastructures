@@ -1,21 +1,45 @@
+import {createSecureContext} from "tls";
+
 export class TreeNode<T> {
     public data: T;
     public left: TreeNode<T>;
     public right: TreeNode<T>;
 
 
-    constructor(data: T, left: TreeNode<T>, right: TreeNode<T>) {
+    constructor(data: T) {
         this.data = data;
-        this.left = left;
-        this.right = right;
+        this.left = null;
+        this.right = null;
     }
 }
 
 export class BinarySearchTree<T> {
-    public head: TreeNode<T>;
+    public root: TreeNode<T>;
 
     insert(t: T): void {
+    	let inserted_node: TreeNode<T> = new TreeNode(t);
+		if (!this.root){
+			this.root = inserted_node;
+		}else{
+			let current: TreeNode<T> = this.root;
+			let previous: TreeNode<T>;
 
+			while (current !== null){
+				if (inserted_node.data < current.data){
+					previous = current;
+					current = current.left;
+				} else {
+					previous = current;
+					current = current.right;
+				}
+			}
+
+			if (inserted_node.data < previous.data){
+				previous.left = inserted_node;
+			} else{
+				previous.right = inserted_node;
+			}
+		}
     }
 
 	contains(t: T): boolean {
