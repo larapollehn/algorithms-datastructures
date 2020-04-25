@@ -113,3 +113,25 @@ test('inOrder-Traversal works', () => {
     const inOrder3 = tree3.inOrder();
     expect(inOrder3).toEqual([3, 5, 7, 12, 13]);
 });
+
+test('levelOrder-Traversal works', () => {
+    const tree: BinarySearchTree<number> = new BinarySearchTree();
+    tree.insert(8);
+    tree.insert(3);
+    tree.insert(1);
+    tree.insert(5);
+    tree.insert(20);
+    tree.insert(15);
+    tree.insert(21);
+    let levelOrder = tree.levelOrder();
+    expect(levelOrder).toEqual([8, 3, 20, 1, 5, 15, 21]);
+
+    const tree2: BinarySearchTree<number> = new BinarySearchTree<number>();
+    tree2.insert(9);
+    tree2.insert(5);
+    tree2.insert(7);
+    tree2.insert(13);
+    tree2.insert(10);
+    levelOrder = tree2.levelOrder();
+    expect(levelOrder).toEqual([9, 5, 13, 7, 10]);
+});

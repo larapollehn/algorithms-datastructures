@@ -90,13 +90,23 @@ export class BinarySearchTree<T> {
         return result;
     }
 
-    /*
-     * Tips: Use high order function
-     */
-    levelOrder()
-        :
-        Array<T> {
-        return new Array<T>();
+    levelOrder(): Array<T> {
+        let queue: Array<TreeNode<T>> = [this.root];
+        let result: Array<T> = [];
+
+        let current: TreeNode<T> = this.root;
+        while(current != undefined){
+            if(current.left){
+                queue.push(current.left);
+            }
+            if(current.right){
+                queue.push(current.right);
+            }
+            result.push(queue.shift().data);
+            current = queue[0];
+        }
+
+        return result;
     }
 
     equals(otherTree
