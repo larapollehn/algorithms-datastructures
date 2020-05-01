@@ -9,8 +9,3 @@ export default function hashString(str: string, size: number): number {
     }
     return hash;
 }
-
-console.log('hiyou', hashString('hiyou', 13));
-console.log('baegle', hashString('baegle', 13));
-console.log("what can i say, except you're welcome", hashString("what can i say, except you're welcome", 13));
-console.log('hamster', hashString('hamster', 13));

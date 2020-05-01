@@ -1,28 +1,28 @@
 import hashString from "../algorithms/StringHash";
 
-export default class HashMap<K, V> {
-    public hashMap: HashMap<K, V>;
-    private readonly size: number;
+export default class HMap<V> {
+    public bucket: any;
+    public readonly size: number;
 
     constructor(size = 31) {
-        this.hashMap = new HashMap();
+        this.bucket = new Array(size);
         this.size = size;
     }
 
-    set(key: K, value: V) {
-        let hashedKey = hashString(key, this.size);
-        if (!this.hashMap[hashedKey]) {
-            this.hashMap[hashedKey] = [];
+    set(key: string, value: V) {
+        let hashedKey = this.hash(key);
+        if (!this.bucket[hashedKey]) {
+            this.bucket[hashedKey] = [];
         }
-        this.hashMap[hashedKey].push([key, value]);
+        this.bucket[hashedKey].push([key, value]);
     }
 
-    get(key: K): V {
-        let hashedKey = hashString(key, this.size);
-        if (this.hashMap[hashedKey]) {
-            for (let i = 0; i < this.hashMap[hashedKey].length; i++) {
-                if (this.hashMap[hashedKey][i][0] === key) {
-                    return this.hashMap[hashedKey][i][1];
+    get(key: string): V {
+        let hashedKey = this.hash(key);
+        if (this.bucket[hashedKey]) {
+            for (let i = 0; i < this.bucket[hashedKey].length; i++) {
+                if (this.bucket[hashedKey][i][0] === key) {
+                    return this.bucket[hashedKey][i][1];
                 }
             }
         } else {
@@ -30,27 +30,32 @@ export default class HashMap<K, V> {
         }
     }
 
-    contains(key: K): boolean {
-        let hashedKey = hashString(key, this.size);
-        if (this.hashMap[hashedKey]) {
-            for (let i = 0; i < this.hashMap[hashedKey].length; i++) {
-                if (this.hashMap[hashedKey][i][0] === key) {
+    contains(key: string): boolean {
+        let hashedKey = this.hash(key);
+        if (this.bucket[hashedKey]) {
+            for (let i = 0; i < this.bucket[hashedKey].length; i++) {
+                if (this.bucket[hashedKey][i][0] === key) {
                     return true;
                 }
             }
             return false;
+        }else {
+            return false;
         }
-        return false;
     }
 
-    delete(key: K): void {
-        let hashedKey = hashString(key, this.size);
-        if (this.hashMap[hashedKey]) {
-            for (let i = 0; i < this.hashMap[hashedKey].length; i++) {
-                if (this.hashMap[hashedKey][i][0] === key) {
-                    this.hashMap[hashedKey].splice(i, 1);
+    delete(key: string): void {
+        let hashedKey = this.hash(key);
+        if (this.bucket[hashedKey]) {
+            for (let i = 0; i < this.bucket[hashedKey].length; i++) {
+                if (this.bucket[hashedKey][i][0] === key) {
+                    this.bucket[hashedKey].splice(i, 1);
                 }
             }
         }
+    }
+
+    hash(key: string){
+        return hashString(key, this.size);
     }
 }
