@@ -2,7 +2,7 @@
   "name": "ts-algorithms",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest tests/**/*.spec.ts"
+    "test": "jest --collectCoverage tests/**/*.spec.ts"
   },
   "author": "",
   "license": "ISC",

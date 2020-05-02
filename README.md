@@ -1,3 +1,5 @@
+[![pipeline status](https://gitlab.com/larrylernt/ts-algorithms/badges/master/pipeline.svg)](https://gitlab.com/larrylernt/ts-algorithms/-/commits/master)
+[![coverage report](https://gitlab.com/larrylernt/ts-algorithms/badges/master/coverage.svg)](https://gitlab.com/larrylernt/ts-algorithms/-/commits/master)
 # ts-algorithms-datastructures
 
 Algorithms and data structures in TypeScript for beginners.

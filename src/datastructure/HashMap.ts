@@ -1,7 +1,7 @@
 import hashString from "../algorithms/StringHash";
 
 export default class HMap<V> {
-    public bucket: any;
+    public bucket: Array<Array<[string, V]>>;
     public readonly size: number;
 
     constructor(size = 31) {
