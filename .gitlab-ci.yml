@@ -7,3 +7,4 @@ test-stage:
   script:
     - npm install
     - npm run test
+  coverage: /All\sfiles.*?\s+(\d+.\d+)/
