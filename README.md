@@ -8,33 +8,33 @@ A task is done and not done.
 
 #### Algorithms
 - [ ] Bread First Serach
-- [ ] Bubble Sort
+- [x] Bubble Sort
 - [ ] Caesar Encryption
 - [ ] Depth First Search
-- [ ] Insertion Sort
-- [ ] Matrix Multiplying
-- [ ] Merge Sort
+- [x] Insertion Sort
+- [x] Matrix Multiplying
+- [x] Merge Sort
 - [ ] Object Hash
-- [ ] Quick Sort
-- [ ] Selection Sort
-- [ ] String hash
+- [x] Quick Sort
+- [x] Selection Sort
+- [x] String hash
 
-#### Data Structres
-- [ ] Binary Heap
-- [ ] Binary Search Tree
-- [ ] Hash Map
+#### Data Structures
+- [x] Binary Heap
+- [x] Binary Search Tree
+- [x] Hash Map
 - [ ] Heap
-- [ ] Linked List
-- [ ] Queue
+- [x] Linked List
+- [x] Queue
 - [ ] Ring Buffer
-- [ ] Stack
+- [x] Stack
 
 #### Math
-- [ ] Euclidean Distance
-- [ ] Factorial
+- [x] Euclidean Distance
+- [x] Factorial
 - [ ] Fibonacci 
 - [ ] Greatest Common Divisor
-- [ ] K-Nearest-Neighbor
+- [x] K-Nearest-Neighbor
 - [ ] Pascal Triangle
 - [ ] Pythagoras
 - [ ] Two Line Intersection
