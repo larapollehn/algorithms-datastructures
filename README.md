@@ -9,7 +9,7 @@ A task is done and not done.
 #### Algorithms
 - [ ] Bread First Serach
 - [x] Bubble Sort
-- [ ] Caesar Encryption
+- [x] Caesar Encryption
 - [ ] Depth First Search
 - [x] Insertion Sort
 - [x] Matrix Multiplying
