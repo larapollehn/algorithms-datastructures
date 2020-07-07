@@ -1,4 +1,4 @@
-import {KNearestNeighbors, Point2D} from "../../src/math/KNearestNeighbors";
+import {KNearestNeighbors, Point2D} from "./KNearestNeighbors";
 
 test('creating a point works', () =>{
     let point1 = new Point2D(12, 4, 'orange');

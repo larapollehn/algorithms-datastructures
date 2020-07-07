@@ -1,4 +1,4 @@
-import insertionSort from "../../src/algorithms/InsertionSort";
+import insertionSort from "./InsertionSort";
 
 test('Sorting an Array with InsertionSort works', () =>{
     let unsorted1: Array<number>  = [1, 2, 6, 9, 3, 8];

@@ -1,4 +1,4 @@
-import hashString from "../algorithms/StringHash";
+import hashString from "./StringHash";
 
 export default class HMap<V> {
     public bucket: Array<Array<[string, V]>>;

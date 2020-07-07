@@ -1,4 +1,4 @@
-import bubbleSort from "../../src/algorithms/BubbleSort";
+import bubbleSort from "./BubbleSort";
 
 test('Sorting an Array with BubbleSort works', () =>{
     let unsorted1: Array<number> = [1, 2, 6, 9, 3, 8];

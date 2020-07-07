@@ -1,5 +1,5 @@
 import HMap from "../../src/datastructure/HashMap";
-import hashString from "../../src/algorithms/StringHash";
+import hashString from "./StringHash";
 
 test("creating a hashmap of arbitrary size works", () => {
     let hm = new HMap< string>();

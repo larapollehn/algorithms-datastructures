@@ -1,4 +1,4 @@
-import {factorial, recursive_factorial} from "../../src/math/Factorial";
+import {factorial, recursive_factorial} from "./Factorial";
 
 test('factorial works - testcases 1', () => {
     expect(factorial(9)).toBe(362880);

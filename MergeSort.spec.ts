@@ -1,4 +1,4 @@
-import {mergeSort, merge, getSubArray, getMiddle} from "../../src/algorithms/MergeSort";
+import {mergeSort, merge, getSubArray, getMiddle} from "./MergeSort";
 import exp = require("constants");
 
 test('merge sort on array works - case odd 1', () => {

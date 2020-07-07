@@ -1,5 +1,5 @@
-import quickSort from "../../src/algorithms/QuickSort";
-import selectionSort from "../../src/algorithms/SelectionSort";
+import quickSort from "./QuickSort";
+import selectionSort from "./SelectionSort";
 
 test('subarrays in quicksort', ()=>{
    let array = [2, 5, 7, 3, 1, 9, 4];

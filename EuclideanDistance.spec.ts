@@ -1,4 +1,4 @@
-import Point2D from "../../src/math/EuclideanDistance";
+import Point2D from "./EuclideanDistance";
 
 test('creating new point works', () => {
     let point1: Point2D = new Point2D(12, 4);

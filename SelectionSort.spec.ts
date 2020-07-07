@@ -1,4 +1,4 @@
-import selectionSort from "../../src/algorithms/SelectionSort";
+import selectionSort from "./SelectionSort";
 
 test('Sorting an array with selectionSort works', () =>{
     let unsorted1: Array<number>  = [1, 2, 6, 9, 3, 8];

@@ -1,4 +1,4 @@
-import {multiply} from "../../src/algorithms/MatrixMultiplying";
+import {multiply} from "./MatrixMultiplying";
 
 test('multiplying two matrix works - testcase 1', () =>{
     const MA1: Array<Array<number>> = [[1, 2, 3], [4, 5, 6]];
